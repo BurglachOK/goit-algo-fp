@@ -64,16 +64,41 @@ class LinkedList:
 			curr.next = prev
 			prev = curr
 			curr = next_node
-		return prev
+		self.head = prev
 
 	def print_list(self):
 		current = self.head
 		while current:
 			print(current.data)
 			current = current.next
-   
+	
+	def len_link(self):
+		count = 0
+		current = self.head
+		while current:
+			count += 1
+			current = current.next
+		return count
 
 
+	def insertion_sort(self):
+		sorted_head = None
+		current = self.head
+
+		while current:
+			next_node = current.next
+			if not sorted_head or current.data < sorted_head.data:
+				current.next = sorted_head
+				sorted_head = current
+			else:
+				sorted_current = sorted_head
+				while sorted_current.next and sorted_current.next.data < current.data:
+					sorted_current = sorted_current.next
+				current.next = sorted_current.next
+				sorted_current.next = current
+			current = next_node
+
+		self.head = sorted_head
 
 
 
@@ -113,7 +138,10 @@ if element:
 print("Зв'язний список:")
 llist.print_list()
 
-reversed_head = llist.reverse_list()
-print(llist.reverse_list())
+llist.reverse_list()
 print("Reversed Linked List:")
-print(llist.print_list())
+llist.print_list()
+
+llist.insertion_sort()
+print("Sorted Linked List:")
+llist.print_list()
