@@ -42,7 +42,7 @@ def draw_tree(tree_root):
     plt.show()
 
 
-def heapify_tree(arr):
+def tree_from_heap(arr):
     heapq.heapify(arr)
 
     nodes = [Node(key) for key in arr]
@@ -56,12 +56,11 @@ def heapify_tree(arr):
             nodes[i].right = nodes[right_index]
     if nodes:
         return nodes[0]
-    else: None
 
 
-elements = [0, 4, 5, 10, 1, 3, 40, 11, 50, 1, 12312]
+elements = [0, 4, 5, 10, 1, 3]
 
-heap_root = heapify_tree(elements)
 
-draw_tree(heap_root)
+root = tree_from_heap(elements)
+draw_tree(root)
 
