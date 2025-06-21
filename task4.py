@@ -59,7 +59,7 @@ def heapify_tree(arr):
     else: None
 
 
-elements = [0, 4, 6, 10, 1, 3, 40, 11]
+elements = [0, 4, 5, 10, 1, 3, 40, 11, 50, 1, 12312]
 
 heap_root = heapify_tree(elements)
 
