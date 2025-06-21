@@ -101,6 +101,8 @@ class LinkedList:
 		self.head = sorted_head
 
 	def merge_2_lists(self, otherList):
+		otherList.insertion_sort()
+		self.insertion_sort()
 		cur = self.head
 		while cur.next:
 			cur = cur.next
